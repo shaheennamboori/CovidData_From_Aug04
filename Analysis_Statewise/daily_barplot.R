@@ -41,6 +41,9 @@ cn_l %>%
         ggplot(aes(date,case, color =rep))+
         geom_line(size =1.4, alpha =0.8)+
         geom_point()+
-        theme_fivethirtyeight()
+        theme_fivethirtyeight()+
+        labs(title = "Covid 19 Daily Report",
+             subtitle = "Kerala",
+             y="cases")
 
 
