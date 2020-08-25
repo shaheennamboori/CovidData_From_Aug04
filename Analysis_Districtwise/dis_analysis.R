@@ -14,10 +14,11 @@ qt_l<- qt %>%
 qt_l$districts <- as.factor(qt_l$districts)
 
 qt_l %>% 
-        filter(districts =="TSR") %>% # choose any District
-        ggplot(aes(Date, qt_no))+
-        geom_line(color ='blue',size =1)+
+        filter(districts =="TSR" |
+                       districts == "TVM") %>% # choose any District
+        ggplot(aes(Date, qt_no,color =districts))+
+        geom_line(size =1.2)+
         geom_point(colour='red')+
         geom_text(aes(label=qt_no), vjust=1.6, color="black", alpha=0.7,
                   position = position_dodge(0.9), size=3.5)+
-        labs(title = "Quarantine in Thrissur")
+        labs(title = "Quarantine in Thrissur and Thiruvanathapuram")
