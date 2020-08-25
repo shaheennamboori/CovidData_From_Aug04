@@ -1,18 +1,23 @@
 library(tidyverse)
 library(lubridate)
-
+# read
 qt <- read_csv("~/GitHub/CovidData_From_Aug04/Analysis_Districtwise/data/quarantine_total.csv")
 
+#remove columns
 qt <- qt %>% 
         select(2:16)
 
+# format date
 qt$Date <- as.Date(qt$Date,"%d/%m/%y")
 
+# wide to long
 qt_l<- qt %>% 
         pivot_longer(-Date, names_to="districts", values_to="qt_no")
 
+#change datatype to factor
 qt_l$districts <- as.factor(qt_l$districts)
 
+# lineplot comparison different counties
 qt_l %>% 
         filter(districts =="TSR" |
                        districts == "TVM") %>% # choose any District
