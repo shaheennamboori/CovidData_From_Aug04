@@ -1,7 +1,7 @@
 library(tidyverse)
 library(lubridate)
 # read
-qt <- read_csv("~/GitHub/CovidData_From_Aug04/Analysis_Districtwise/data/quarantine_total.csv")
+qt <- read_csv("data/quarantine_total.csv")
 
 #remove columns
 qt <- qt %>% 
